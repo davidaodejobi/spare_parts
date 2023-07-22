@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:spare_parts/screens/details/details.dart';
 
 class ProductDetail extends StatelessWidget {
@@ -44,95 +45,104 @@ class ProductDetail extends StatelessWidget {
           ),
         )
       },
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 10.0),
-        child: SizedBox(
-          height: 230,
-          child: Card(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(13))),
-            color: Color(int.parse(cardColor)),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 20.0, top: 10.0, right: 10.0, bottom: 30.0),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding:
-                              const EdgeInsets.only(top: 20.0, bottom: 20.0),
-                          child: Expanded(
-                              child: Text(
-                            productName,
-                            style: const TextStyle(
-                                height: 1.1,
-                                fontSize: 23.0,
-                                fontWeight: FontWeight.w300),
-                          )),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 20.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                'Type',
-                                style: TextStyle(
-                                    color: Color(0xff9A9A9A),
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12.0),
-                              ),
-                              Text(
-                                sparePartType,
-                                style: const TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 12.0,
-                                    color: Color.fromRGBO(0, 0, 0, 0.5)),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              productPrice,
-                              style: const TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18.0),
-                            ),
-                            Image(
-                              image: AssetImage(iconImageUrl),
-                              width: 25.0,
-                              height: 25.0,
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                      child: Image(
-                    image: AssetImage(imageUrl),
-                  )),
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 120.0,
-                    ),
-                    child: Image(
-                      image: AssetImage("assets/images/bookmark-white.png"),
-                      width: 15.0,
-                      height: 15.0,
-                    ),
-                  ),
-                ],
+      child: Stack(
+        children: [
+          Container(
+            padding: const EdgeInsets.fromLTRB(24, 16, 16, 16),
+            margin: const EdgeInsets.only(
+              bottom: 16,
+            ),
+            decoration: BoxDecoration(
+              color: Color(int.parse(cardColor)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(12),
               ),
             ),
+            child: Row(
+              children: [
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        productName,
+                        style: const TextStyle(
+                          height: 1.1,
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        children: [
+                          const Text(
+                            'Type',
+                            style: TextStyle(
+                                color: Color(0xff9A9A9A),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 12.0),
+                          ),
+                          const SizedBox(
+                            width: 10.0,
+                          ),
+                          Text(
+                            sparePartType,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 12.0,
+                                color: Color.fromRGBO(0, 0, 0, 0.5)),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20.0,
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            productPrice,
+                            style: const TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18.0),
+                          ),
+                          const SizedBox(
+                            width: 30.0,
+                          ),
+                          Image(
+                            image: AssetImage(iconImageUrl),
+                            width: 25.0,
+                            height: 25.0,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 150.0,
+                    width: 150.0,
+                    child: Image.asset(
+                      imageUrl,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+          Positioned(
+            top: 16,
+            right: 16,
+            child: SvgPicture.asset(
+              "assets/svgs/bookmark.svg",
+              width: 15.0,
+              height: 15.0,
+            ),
+          ),
+        ],
       ),
     );
   }

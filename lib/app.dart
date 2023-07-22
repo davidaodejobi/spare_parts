@@ -45,6 +45,7 @@ class _SparePartState extends State<SparePart> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.white,
           currentIndex: startingIndex,
           onTap: (int index) {
             setState(() {
@@ -53,6 +54,8 @@ class _SparePartState extends State<SparePart> {
           },
           elevation: 0,
           type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color(0xff453885),
+          unselectedItemColor: Colors.grey,
           items: [
             BottomNavigationBarItem(
               icon: SvgPicture.asset(

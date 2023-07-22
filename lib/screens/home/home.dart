@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
       productName: "Ball Joint M10 RH",
       productPrice: "₦ 45,000",
       imageUrl: "assets/images/BallJoint.png",
-      iconImageUrl: "assets/image>s/add-cart.png",
+      iconImageUrl: "assets/images/add-cart.png",
       cardColor: "0xffFFE1D6",
       sparePartType: "Gear Mechanism",
       descriptionList:
@@ -74,44 +74,44 @@ class Home extends StatelessWidget {
         ),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 20.0,
-              horizontal: 16.0,
-            ),
-            child: Row(
-              children: const [
-                Products(
-                  productName: "Volvo",
-                  imageUrl: 'assets/images/volvo.png',
-                ),
-                Products(
-                  productName: "Volvo FMX",
-                  imageUrl: 'assets/images/volvo.png',
-                ),
-                Products(
-                  productName: "Volvo Trucks",
-                  imageUrl: 'assets/images/volvo.png',
-                ),
-                Products(
-                  productName: "Ashok",
-                  imageUrl: 'assets/images/volvo.png',
-                ),
-              ],
-            ),
+          padding: const EdgeInsets.symmetric(
+            vertical: 20.0,
+            horizontal: 16.0,
+          ),
+          child: Row(
+            children: const [
+              Products(
+                productName: "Volvo",
+                imageUrl: 'assets/images/volvo.png',
+              ),
+              Products(
+                productName: "Volvo FMX",
+                imageUrl: 'assets/images/volvo.png',
+              ),
+              Products(
+                productName: "Volvo Trucks",
+                imageUrl: 'assets/images/volvo.png',
+              ),
+              Products(
+                productName: "Ashok",
+                imageUrl: 'assets/images/volvo.png',
+              ),
+            ],
           ),
         ),
-        // Expanded(
-        //   child: SingleChildScrollView(
-        //     scrollDirection: Axis.vertical,
-        //     child: Padding(
-        //       padding: const EdgeInsets.all(20.0),
-        //       child: Column(
-        //         children: productList,
-        //       ),
-        //     ),
-        //   ),
-        // ),
+        Expanded(
+          child: ListView(
+            padding: const EdgeInsets.only(
+              left: 16.0,
+              right: 16.0,
+              top: 16.0,
+            ),
+            // physics: const NeverScrollableScrollPhysics(),
+            children: [
+              ...productList,
+            ],
+          ),
+        ),
       ],
     );
   }
