@@ -12,34 +12,47 @@ class Products extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 200,
-      height: 100,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 15.0),
-        child: Card(
-          shadowColor: const Color.fromRGBO(0, 0, 0, 0.7),
-          shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(13))),
-          child: Padding(
-            padding: const EdgeInsets.only(
-                left: 10.0, top: 30.0, right: 5.0, bottom: 30),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image(
-                  image: AssetImage(imageUrl),
-                ),
-                Text(
-                  productName,
-                  style: const TextStyle(color: Color.fromRGBO(0, 0, 0, 0.2)),
-                ),
-                const Icon(Icons.keyboard_arrow_down,
-                    color: Color.fromRGBO(0, 0, 0, 0.2)),
-              ],
+    return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: 8,
+        vertical: 12,
+      ),
+      margin: const EdgeInsets.only(right: 12.0),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(12),
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            blurRadius: 10,
+            offset: const Offset(0, 5),
+          ),
+        ],
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Image(
+            image: AssetImage(imageUrl),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Text(
+            productName,
+            style: const TextStyle(
+              color: Color.fromRGBO(0, 0, 0, 0.2),
+              fontSize: 12,
             ),
           ),
-        ),
+          const SizedBox(
+            width: 16,
+          ),
+          const Icon(Icons.keyboard_arrow_down,
+              color: Color.fromRGBO(0, 0, 0, 0.2)),
+        ],
       ),
     );
   }

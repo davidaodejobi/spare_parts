@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spare_parts/screens/home/home.dart';
+import 'package:spare_parts/app.dart';
 
 void main() => runApp(const SparePartApp());
 
