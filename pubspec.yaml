@@ -4,13 +4,16 @@ description: Spare Pare Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=2.19.4 <3.0.0"
+  # sdk: '>=3.0.1 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  fvm: ^2.4.1
+  flutter_svg: ^2.0.2
 
 dev_dependencies:
   flutter_test:
@@ -19,13 +22,14 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
-
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - lib/assets/images/
-    # - lib/assets/images/volvo.png
+    - assets/images/
+    - assets/fonts/
+    - assets/svgs/
+    # - assets/images/volvo.png
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -42,10 +46,10 @@ flutter:
   fonts:
     - family: Gotham
       fonts:
-        - asset: lib/assets/fonts/Gothambold.ttf
-        - asset: lib/assets/fonts/GothamLight.ttf
-        - asset: lib/assets/fonts/GothamMedium.ttf
-        - asset: lib/assets/fonts/GothamBoldItalic.ttf
+        - asset: assets/fonts/Gothambold.ttf
+        - asset: assets/fonts/GothamLight.ttf
+        - asset: assets/fonts/GothamMedium.ttf
+        - asset: assets/fonts/GothamBoldItalic.ttf
           style: italic
   #   - family: Trajan Pro
   #     fonts:
